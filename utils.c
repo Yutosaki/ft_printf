@@ -6,7 +6,7 @@
 /*   By: yutsasak <yutsasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:34:25 by yutsasak          #+#    #+#             */
-/*   Updated: 2024/05/08 20:33:03 by yutsasak         ###   ########.fr       */
+/*   Updated: 2024/05/26 19:50:36 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ int	ft_putaddress(unsigned long long nbr, char *base)
 int	ft_putnbr(long long nbr, char *base)
 {
 	long long	base_digits;
-	int			len;
-	int			more;
 
+	int (more), len, neg = 0;
 	base_digits = 0;
 	while (base[base_digits])
 		base_digits++;
@@ -67,6 +66,7 @@ int	ft_putnbr(long long nbr, char *base)
 		if (ft_putchar('-') == -1)
 			return (-1);
 		nbr = -nbr;
+		neg++;
 	}
 	if (nbr < base_digits)
 		return (ft_putchar(base[nbr]));
@@ -78,7 +78,7 @@ int	ft_putnbr(long long nbr, char *base)
 		more = ft_putnbr(nbr % base_digits, base);
 		if (more == -1)
 			return (-1);
-		return (len + more);
+		return (len + more + neg);
 	}
 }
 
