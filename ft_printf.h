@@ -6,7 +6,7 @@
 /*   By: yutsasak <yutsasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:02:05 by yutsasak          #+#    #+#             */
-/*   Updated: 2024/05/28 15:39:53 by yutsasak         ###   ########.fr       */
+/*   Updated: 2024/06/05 22:13:40 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int		ft_putstr(char *s);
 int		ft_putnbr(long long nbr, char *base);
 int		ft_putaddress(unsigned long long nbr, char *base);
 void	handle_special_formats(va_list *ap, const char *fmt, int *len);
-void	handle_string_format(va_list *ap, int *len);
+int		handle_unsigned(va_list *ap, const char *fmt, int *len);
 
 #endif
